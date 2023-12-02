@@ -89,8 +89,8 @@ fn phase_two(filename: String) {
 }
 
 pub fn main() {
-  phase_one("test_input.txt")
-  phase_one("input.txt")
-  phase_two("test_input2.txt")
-  phase_two("input.txt")
+  phase_one("inputs/01.test.txt")
+  phase_one("inputs/01.txt")
+  phase_two("inputs/01-2.test.txt")
+  phase_two("inputs/01.txt")
 }
