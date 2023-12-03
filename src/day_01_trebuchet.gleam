@@ -3,13 +3,7 @@ import gleam/int
 import gleam/list
 import gleam/option
 import gleam/regex
-import gleam/string
-import simplifile
-
-fn lines(file: String) -> List(String) {
-  file
-  |> string.split(on: "\n")
-}
+import util
 
 pub fn extract_digits(str: String, strings: Bool) -> List(String) {
   let assert Ok(re) = case strings {
@@ -69,28 +63,24 @@ pub fn calibrate(values: List(Int)) -> Int {
 }
 
 fn phase_one(filename: String) {
-  let assert Ok(contents) = simplifile.read(from: filename)
   let result =
-    contents
-    |> lines
+    util.read_input_lines(filename)
     |> values
     |> calibrate
   io.println("Phase 1 (" <> filename <> "): " <> int.to_string(result))
 }
 
 fn phase_two(filename: String) {
-  let assert Ok(contents) = simplifile.read(from: filename)
   let result =
-    contents
-    |> lines
+    util.read_input_lines(filename)
     |> values_v2
     |> calibrate
   io.println("Phase 2 (" <> filename <> "): " <> int.to_string(result))
 }
 
 pub fn main() {
-  phase_one("inputs/01.test.txt")
-  phase_one("inputs/01.txt")
-  phase_two("inputs/01-2.test.txt")
-  phase_two("inputs/01.txt")
+  phase_one("01.test.txt")
+  phase_one("01.txt")
+  phase_two("01-2.test.txt")
+  phase_two("01.txt")
 }

@@ -1,10 +1,5 @@
-import gleeunit
 import gleeunit/should
 import day_01_trebuchet
-
-pub fn main() {
-  gleeunit.main()
-}
 
 pub fn calibrate_test() {
   day_01_trebuchet.calibrate([1, 2, 3])
